@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Relatórios e Conversas — Ueide Santos</title>
+
+<style>
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffffcc;
+  --text:#1c1f26;
+  --muted:#667085;
+  --accent:#6c63ff;
+  --border:#e5e7eb;
+  --shadow:0 10px 30px rgba(0,0,0,.06);
+  --glass:blur(16px);
+}
+body.dark{
+  --bg:#0f1115;
+  --card:#171a21cc;
+  --text:#f3f4f6;
+  --muted:#9ca3af;
+  --accent:#8b83ff;
+  --border:#2a2f3a;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  font-family: Inter, system-ui, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+  transition:.3s ease;
+}
+.background-glow{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top left, rgba(108,99,255,.15), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(0,200,255,.08), transparent 30%);
+  z-index:-1;
+}
+.layout{
+  display:flex;
+  max-width:1400px;
+  margin:auto;
+}
+.sidebar{
+  width:300px;
+  height:100vh;
+  position:sticky;
+  top:0;
+  padding:40px 24px;
+  border-right:1px solid var(--border);
+  backdrop-filter:var(--glass);
+}
+.sidebar h1{
+  font-size:1.4rem;
+  margin-bottom:10px;
+}
+.sidebar p{
+  color:var(--muted);
+  margin-bottom:24px;
+}
+.nav a{
+  display:block;
+  padding:10px 14px;
+  margin-bottom:8px;
+  border-radius:12px;
+  text-decoration:none;
+  color:var(--muted);
+  transition:.2s;
+}
+.nav a:hover{
+  background:var(--card);
+  color:var(--text);
+}
+.toggle{
+  margin-top:30px;
+  border:none;
+  background:var(--accent);
+  color:white;
+  padding:12px 16px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+}
+.content{
+  flex:1;
+  padding:80px 60px;
+}
+.hero{
+  margin-bottom:60px;
+}
+.hero h1{
+  font-size:2.2rem;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+.hero p{
+  color:var(--muted);
+  max-width:700px;
+}
+.card{
+  background:var(--card);
+  backdrop-filter:var(--glass);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:32px;
+  margin-bottom:32px;
+  box-shadow:var(--shadow);
+  transition:transform .25s ease;
+}
+.card:hover{
+  transform:translateY(-2px);
+}
+.card h2{
+  margin-bottom:20px;
+  font-size:1.8rem;
+}
+.card p{
+  margin-bottom:16px;
+}
+.footer{
+  text-align:center;
+  color:var(--muted);
+  margin-top:60px;
+  padding-bottom:40px;
+}
+@media(max-width:1024px){
+  .layout{
+    flex-direction:column;
+  }
+  .sidebar{
+    position:relative;
+    width:100%;
+    height:auto;
+    border-right:none;
+    border-bottom:1px solid var(--border);
+  }
+  .content{
+    padding:40px 20px;
+  }
+  .hero h1{
+    font-size:1.4rem;
+  }
+}
+</style>
+</head>
+<body class="dark">
+<div class="background-glow"></div>
+<div class="layout">
+<aside class="sidebar">
+  <h1>Ueide Santos</h1>
+  <p>Relatórios e Conversas</p>
+  <nav class="nav">
+    <a href="#relatorio">Relatório Psicodinâmico</a>
+    <a href="#conversa">Conversa com Chat-GPT</a>
+  </nav>
+  <button class="toggle" onclick="toggleTheme()">Alternar tema</button>
+</aside>
+<main class="content">
+  <section class="hero">
+    <div class="card">
+      <h1>Bem-vindo</h1>
+      <p>Selecione abaixo para acessar o relatório psicodinâmico premium ou a conversa com o Chat-GPT (Charles).</p>
+    </div>
+  </section>
+  <section class="card" id="relatorio">
+    <h2>Relatório Psicodinâmico Premium</h2>
+    <p>Acesse o relatório completo e visual premium.</p>
+    <a href="relatorio_psicodinamico_premium.html" target="_blank" style="display:inline-block;padding:12px 24px;background:var(--accent);color:white;border-radius:12px;text-decoration:none;font-weight:600;">Abrir Relatório</a>
+  </section>
+  <section class="card" id="conversa">
+    <h2>Conversa com Chat-GPT (Charles)</h2>
+    <p>Veja a conversa detalhada com o assistente de IA sobre o caso.</p>
+    <a href="Conversa_Charles/Relatório técnico psicológico.html" target="_blank" style="display:inline-block;padding:12px 24px;background:var(--accent);color:white;border-radius:12px;text-decoration:none;font-weight:600;">Abrir Conversa</a>
+  </section>
+  <div class="footer">
+    Página de acesso aos documentos • 2026
+  </div>
+</main>
+</div>
+<script>
+function toggleTheme(){
+  document.body.classList.toggle('dark');
+}
+</script>
+</body>
+</html>
