@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Relatório Psicodinâmico — Ueide Santos</title>
+
+<style>
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffffcc;
+  --text:#1c1f26;
+  --muted:#667085;
+  --accent:#6c63ff;
+  --border:#e5e7eb;
+  --shadow:0 10px 30px rgba(0,0,0,.06);
+  --glass:blur(16px);
+}
+
+body.dark{
+  --bg:#0f1115;
+  --card:#171a21cc;
+  --text:#f3f4f6;
+  --muted:#9ca3af;
+  --accent:#8b83ff;
+  --border:#2a2f3a;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family: Inter, system-ui, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+  transition:.3s ease;
+}
+
+.background-glow{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top left, rgba(108,99,255,.15), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(0,200,255,.08), transparent 30%);
+  z-index:-1;
+}
+
+.layout{
+  display:flex;
+  max-width:1400px;
+  margin:auto;
+}
+
+.sidebar{
+  width:300px;
+  height:100vh;
+  position:sticky;
+  top:0;
+  padding:40px 24px;
+  border-right:1px solid var(--border);
+  backdrop-filter:var(--glass);
+}
+
+.sidebar h1{
+  font-size:1.4rem;
+  margin-bottom:10px;
+}
+
+.sidebar p{
+  color:var(--muted);
+  margin-bottom:24px;
+}
+
+.nav a{
+  display:block;
+  padding:10px 14px;
+  margin-bottom:8px;
+  border-radius:12px;
+  text-decoration:none;
+  color:var(--muted);
+  transition:.2s;
+}
+
+.nav a:hover{
+  background:var(--card);
+  color:var(--text);
+}
+
+.toggle{
+  margin-top:30px;
+  border:none;
+  background:var(--accent);
+  color:white;
+  padding:12px 16px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.content{
+  flex:1;
+  padding:80px 60px;
+}
+
+.hero{
+  margin-bottom:60px;
+}
+
+.hero h1{
+  font-size:3rem;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:700px;
+}
+
+.card{
+  background:var(--card);
+  backdrop-filter:var(--glass);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:32px;
+  margin-bottom:32px;
+  box-shadow:var(--shadow);
+  transition:transform .25s ease;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+}
+
+.card h2{
+  margin-bottom:20px;
+  font-size:1.8rem;
+}
+
+.card h3{
+  margin:24px 0 12px;
+  font-size:1.15rem;
+}
+
+.card p{
+  margin-bottom:16px;
+}
+
+.quote{
+  border-left:4px solid var(--accent);
+  padding:16px 20px;
+  margin:20px 0;
+  background:rgba(108,99,255,.08);
+  border-radius:12px;
+  font-style:italic;
+}
+
+ul{
+  padding-left:24px;
+}
+
+li{
+  margin-bottom:10px;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(108,99,255,.12);
+  color:var(--accent);
+  font-size:.85rem;
+  margin-bottom:16px;
+  font-weight:600;
+}
+
+.timeline{
+  border-left:2px solid var(--border);
+  margin-top:20px;
+  padding-left:24px;
+}
+
+.timeline-item{
+  position:relative;
+  margin-bottom:28px;
+}
+
+.timeline-item::before{
+  content:'';
+  position:absolute;
+  left:-31px;
+  top:8px;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--accent);
+}
+
+.footer{
+  text-align:center;
+  color:var(--muted);
+  margin-top:60px;
+  padding-bottom:40px;
+}
+
+@media(max-width:1024px){
+  .layout{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    position:relative;
+    width:100%;
+    height:auto;
+    border-right:none;
+    border-bottom:1px solid var(--border);
+  }
+
+  .content{
+    padding:40px 20px;
+  }
+
+  .hero h1{
+    font-size:2.2rem;
+  }
+}
+</style>
+</head>
+
+<body class="dark">
+
+<div class="background-glow"></div>
+
+<div class="layout">
+
+<aside class="sidebar">
+  <h1>Ueide Santos</h1>
+  <p>Relatório Psicodinâmico e Neuropsicológico Integrativo</p>
+
+  <nav class="nav">
+    <a href="#visao">Visão Geral</a>
+    <a href="#conflitos">Conflitos Internos</a>
+    <a href="#defesas">Mecanismos de Defesa</a>
+    <a href="#validacao">Validação e Identidade</a>
+    <a href="#falsoself">Falso Self</a>
+    <a href="#origens">Origens Emocionais</a>
+    <a href="#fugas">Fugas e Compulsões</a>
+    <a href="#evolucao">Reconstrução Psíquica</a>
+    <a href="#hipoteses">Hipóteses Clínicas</a>
+    <a href="#resumo">Resumo Executivo</a>
+  </nav>
+
+  <button class="toggle" onclick="toggleTheme()">Alternar tema</button>
+</aside>
+
+<main class="content">
+
+<section class="hero">
+  <div class="badge">Documento Clínico Privado</div>
+  <h1>Relatório Psicodinâmico e Neuropsicológico</h1>
+  <p>
+    Uma organização visual premium do conteúdo clínico, emocional e reflexivo
+    baseado em padrões psíquicos, reconstrução emocional, mecanismos defensivos
+    e análise psicodinâmica inspirada em Winnicott e Freud.
+  </p>
+</section>
+
+<section class="card" id="visao">
+  <div class="badge">Estrutura Psíquica</div>
+  <h2>Visão Geral Técnica</h2>
+
+  <p>
+    Ueide apresenta uma estrutura psíquica marcada por tensão entre alta adaptação funcional e sofrimento interno relacionado à construção de valor pessoal.
+  </p>
+
+  <div class="quote">
+    “Eu só tenho valor quando desempenho, produzo, evoluo ou sou reconhecido.”
+  </div>
+
+  <p>
+    Existe forte associação entre autoestima, competência e reconhecimento externo. A dinâmica emocional sugere funcionamento próximo ao conflito entre falso self adaptativo e self verdadeiro parcialmente oculto.
+  </p>
+
+  <ul>
+    <li>Alta capacidade reflexiva</li>
+    <li>Boa simbolização emocional</li>
+    <li>Necessidade recorrente de reconhecimento</li>
+    <li>Busca intensa por pertencimento emocional</li>
+    <li>Oscilação entre lucidez emocional e fuga psíquica</li>
+  </ul>
+</section>
+
+<section class="card" id="conflitos">
+  <div class="badge">Conflitos Centrais</div>
+  <h2>Principais Conflitos Internos</h2>
+
+  <h3>Valor pessoal versus performance</h3>
+
+  <p>
+    A identidade profissional parece funcionar parcialmente como organizador psíquico e defesa contra sentimentos de insuficiência.
+  </p>
+
+  <h3>Necessidade de acolhimento versus medo de dependência emocional</h3>
+
+  <p>
+    Há desejo intenso por conexão emocional autêntica, acompanhado de medo de rejeição e abandono.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <strong>Junho/Julho 2025</strong>
+      <p>Construção simbólica do “Plano Volta pra Casa”.</p>
+    </div>
+
+    <div class="timeline-item">
+      <strong>Maio 2026</strong>
+      <p>Busca aprofundada por conceitos ligados a falso self e reconstrução emocional.</p>
+    </div>
+  </div>
+</section>
+
+<section class="card" id="defesas">
+  <div class="badge">Psicodinâmica</div>
+  <h2>Mecanismos de Defesa</h2>
+
+  <h3>Intelectualização</h3>
+  <p>
+    Transformação recorrente do sofrimento emocional em análise racional, teoria e estrutura conceitual.
+  </p>
+
+  <h3>Idealização</h3>
+  <p>
+    Tendência ocasional de atribuir potência reparadora intensa a pessoas, relações ou projetos.
+  </p>
+
+  <h3>Hiperfuncionamento produtivo</h3>
+  <p>
+    Possível uso da produtividade como contenção emocional e estabilização identitária.
+  </p>
+</section>
+
+<section class="card" id="validacao">
+  <div class="badge">Autoestima</div>
+  <h2>Validação Externa e Identidade</h2>
+
+  <p>
+    O olhar do outro parece exercer função organizadora importante do self.
+  </p>
+
+  <ul>
+    <li>Reconhecimento intelectual</li>
+    <li>Diferenciação técnica</li>
+    <li>Percepção de utilidade</li>
+    <li>Excelência profissional</li>
+    <li>Busca de destaque</li>
+  </ul>
+</section>
+
+<section class="card" id="falsoself">
+  <div class="badge">Winnicott</div>
+  <h2>Falso Self vs Self Verdadeiro</h2>
+
+  <h3>Falso Self</h3>
+  <ul>
+    <li>Competência</li>
+    <li>Autocontrole</li>
+    <li>Produtividade</li>
+    <li>Imagem funcional</li>
+  </ul>
+
+  <h3>Self Verdadeiro</h3>
+  <ul>
+    <li>Vulnerabilidade</li>
+    <li>Necessidade de acolhimento</li>
+    <li>Desejo de pertencimento</li>
+    <li>Medo de abandono</li>
+  </ul>
+</section>
+
+<section class="card" id="origens">
+  <div class="badge">Hipóteses</div>
+  <h2>Possíveis Origens Emocionais</h2>
+
+  <ul>
+    <li>Validação emocional inconsistente</li>
+    <li>Necessidade precoce de adaptação</li>
+    <li>Valor condicionado ao desempenho</li>
+    <li>Medo de não ser emocionalmente escolhido</li>
+    <li>Carência de espelhamento emocional</li>
+  </ul>
+</section>
+
+<section class="card" id="fugas">
+  <div class="badge">Compulsão e Fuga</div>
+  <h2>Comportamentos de Fuga e Anestesia Emocional</h2>
+
+  <p>
+    Há sinais de hiperfoco em produtividade, racionalização da dor e necessidade constante de evolução como possíveis reguladores emocionais.
+  </p>
+
+  <div class="quote">
+    “Eu sou mais do que a droga.”
+  </div>
+</section>
+
+<section class="card" id="evolucao">
+  <div class="badge">Reconstrução</div>
+  <h2>Sinais de Evolução Psíquica</h2>
+
+  <ul>
+    <li>Maior consciência emocional</li>
+    <li>Desejo genuíno de verdade</li>
+    <li>Reconhecimento dos próprios mecanismos</li>
+    <li>Capacidade crescente de autorregulação</li>
+    <li>Busca ativa de integração emocional</li>
+  </ul>
+</section>
+
+<section class="card" id="hipoteses">
+  <div class="badge">Hipóteses Clínicas</div>
+  <h2>Hipóteses Relevantes</h2>
+
+  <ul>
+    <li>Fragilidade narcísica compensada por hipercompetência</li>
+    <li>Funcionamento importante de falso self adaptativo</li>
+    <li>Dependência parcial de validação externa</li>
+    <li>Intelectualização como defesa predominante</li>
+    <li>Possível carência de espelhamento emocional consistente</li>
+  </ul>
+</section>
+
+<section class="card" id="resumo">
+  <div class="badge">Resumo Executivo</div>
+  <h2>Conclusão Clínica Integrativa</h2>
+
+  <p>
+    O material sugere conflito importante entre alta adaptação funcional e sofrimento relacionado à percepção de valor pessoal.
+  </p>
+
+  <p>
+    Apesar disso, existem sinais muito relevantes de amadurecimento emocional, autorreflexão e reconstrução psíquica.
+  </p>
+
+  <div class="quote">
+    Existe potencial significativo de fortalecimento do self verdadeiro caso encontre ambiente relacional suficientemente seguro.
+  </div>
+</section>
+
+<div class="footer">
+  Documento gerado para leitura privada • 2026
+</div>
+
+</main>
+</div>
+
+<script>
+function toggleTheme(){
+  document.body.classList.toggle('dark');
+}
+</script>
+
+</body>
+</html>
